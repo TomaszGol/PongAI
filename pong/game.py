@@ -114,13 +114,19 @@ class Game:
                 return False
             if not up and self.left_paddle.y + Paddle.HEIGHT > self.window_height:
                 return False
-            self.left_paddle.move(up)
+            if up:
+                self.left_paddle.move_up()
+            else:
+                self.left_paddle.move_down()
         else:
             if up and self.right_paddle.y - Paddle.VEL < 0:
                 return False
             if not up and self.right_paddle.y + Paddle.HEIGHT > self.window_height:
                 return False
-            self.right_paddle.move(up)
+            if up:
+                self.right_paddle.move_up()
+            else:
+                self.right_paddle.move_down()
 
         return True
 
